@@ -31,7 +31,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
     Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl"
 
-    Copy-Item -Recurse .\VKEStress-v1.27_20150701 C:\Users\Administrator\Desktop\VKEStress
+    Copy-Item -Recurse .\VKXXXStress C:\Users\Administrator\Desktop\VKEStress
 
 
 pause
