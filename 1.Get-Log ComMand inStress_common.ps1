@@ -96,8 +96,8 @@ if(Test-Path .\a\tool\CrystalDiskInfo8_17_13_B\DiskInfo.txt) {Move-Item .\a\tool
 #bsod_forensic_updatelatest
 get-executionpolicy
 set-executionpolicy RemoteSigned
-#CMDCallPowerShell: powershell a\bsodIF_app.ps1 > "a\%newfolder%\bsod_Forensic.txt"
-a\bsodIF_app.ps1 > "a\$FoldEr\bsod_Forensic.txt"
+#CMDCallPowerShell: powershell a\bsodIF_DEV_DRV.ps1 > "a\%newfolder%\bsod_Forensic.txt"
+a\bsodIF_DEV_DRV.ps1 > "a\$FoldEr\bsod_Forensic.txt"
 
 #FPT DownLoad BIOS_SPI
 #"a\FPT tool\FPTW64.exe" -D "a\%newfolder%\BIOS_DUMP SPI.bin"
