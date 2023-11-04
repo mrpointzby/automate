@@ -85,8 +85,13 @@ function CheckVal1Bit{
 }
 #>
 
+function BDF2MemAddr{
+    param(
+        [Parameter(Mandatory=$true, Position=0)]
+        [int]$BDF
+    )
 
-$BDF = read-host -Prompt "input <bus> <device> <function> (split by space)(as HEX)"
+    try{
 $ArrayBDF = $BDF -split ‘ ’ | foreach-object {$_}
 echo "<bus> LeftShift -shl 20, <device> Left Shift 15, <function> left shift 12"
 $i = 0
@@ -109,8 +114,18 @@ while($i -le $ArrayBDF.GetUpperBound(0)){
 $resultAddr = HEXAdd $result[0] $result[1]
 $resultAddr = HEXAdd $resultAddr $result[2]
 echo $resultAddr
+$resultAddr = HEXAdd $resultAddr "C0000000"
+# todo: retrieve PCIe base address
+echo "AddPCIeBaseAddr is $resultAddr"
 # also $array.length and $array.count
 
+}
+catch {
+    throw "input <bus> <device> <function> (split by space)(as HEX)"
+# In Other Not specified Exception write current error that occurred
+}
+
+}
 <#
 $result = @()
 $i = 0
